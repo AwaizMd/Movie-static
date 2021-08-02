@@ -1,0 +1,28 @@
+.upcoming-movies{
+    background-color: #ff9999;
+    text-align: center;
+    padding: 8px;
+    font-size: 1rem;
+}
+
+.released{
+    display: flex;
+
+}
+
+.releasedMovies{
+    width: 70vw;
+    margin: 16px;
+}
+
+.filters{
+    background-color: teal;
+    width: 30vw;
+   margin: 16px 16px 0px 0px;
+}
+
+#imagelist:hover{
+    background-color: black;
+    opacity: 0.4;
+    cursor: pointer;
+}
