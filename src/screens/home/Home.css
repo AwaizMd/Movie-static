@@ -11,18 +11,25 @@
 }
 
 .releasedMovies{
-    width: 70vw;
+    width: 76vw;
     margin: 16px;
 }
 
 .filters{
-    background-color: teal;
-    width: 30vw;
-   margin: 16px 16px 0px 0px;
+    width: 24vw;
+   margin: 30px 0px 0px 0px;
 }
 
 #imagelist:hover{
     background-color: black;
     opacity: 0.4;
     cursor: pointer;
+}
+
+#filterHeading{
+    color: darkblue;
+}
+
+#applyBtn{
+    margin-top: 30px;
 }
