@@ -1,0 +1,28 @@
+.details-grid{
+    display: flex;
+    
+}
+
+.movie-image{
+    width: 15vw;
+    margin: 20px 40px 0px 20px;
+
+}
+
+.movie-details{
+    width: 60vw;
+    margin: 20px;
+}
+
+.movie-rating{
+    width: 20vw;
+    margin: 20px;
+}
+
+.youtube{
+    width: 100%;
+}
+
+.back-btn{
+    margin-top: 20px;
+}

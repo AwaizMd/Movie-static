@@ -1,24 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import Header from "./../../common/Header";
 import { makeStyles } from "@material-ui/core/styles";
 import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from "@material-ui/core/ImageListItem";
 import ImageListItemBar from "@material-ui/core/ImageListItemBar";
-import MoviesData from "./../../common/moviesData";
-import TextField from '@material-ui/core/TextField';
-import Card from '@material-ui/core/Card';
-import Input from "@material-ui/core/Input";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import ListItemText from "@material-ui/core/ListItemText";
-import Select from "@material-ui/core/Select";
-import Checkbox from "@material-ui/core/Checkbox";
-import Gener from "./../../common/genre";
-import Artists from "./../../common/artists";
-import { Button } from "@material-ui/core";
-
+import { moviesData } from "./../../common/moviesData";
+import { Link} from "react-router-dom";
+import Form from './Form';
+import moment from "moment";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,10 +27,12 @@ const useStyles = makeStyles((theme) => ({
   ImageListItem: {
     minHeight:250,
     maxHeight: 250,
-
+    minWidth:180,
   },
   title: {
+    fontSize: 14,
     color: theme.palette.primary.light,
+    marginLeft: 10
   },
   titleBar: {
     background:
@@ -49,8 +41,13 @@ const useStyles = makeStyles((theme) => ({
   ImageListItemR: {
     minHeight:350,
     maxHeight: 350,
-    width: 100,
+    minWidth:280,
+
     margin: 10,
+  },
+  image:{
+    minWidth:280,
+    maxWidth:290,
   },
   card: {
     maxWidth: 240,
@@ -79,23 +76,70 @@ const MenuProps = {
 
 export default function Home() {
   const classes = useStyles();
-  const [moviesName, setMovieName] = React.useState([]);
-  const [actorsName, setActorName] = React.useState([]);
+  const [filteredMovies, setFilteredMovies] = useState(moviesData);
+  const [genre, setGenre] = React.useState([]);
+  const [artist, setArtist] = React.useState([]);
 
-  const handleChange = (event) => {
-    setMovieName(event.target.value);
-  };
-  const handleChangeactor = (event) => {
-    setActorName(event.target.value);
+  const handleGenreChange = (event) => {
+    console.log(event.target.value);
+    setGenre(event.target.value);
   };
 
+  const handleArtistChange = (event) => {
+    setArtist(event.target.value);
+  };
+
+  const getFilteredOnGenre = (movies) => {
+    if (genre.length === 0) {
+      return movies;
+    }
+
+    return movies.filter((movie) => {
+      for (let i = 0; i < movie.genres.length; i++) {
+        if (genre.includes(movie.genres[i])) {
+          return true;
+        }
+      }
+      return false;
+    });
+  };
+
+  const getFilteredOnArtists = (movies) => {
+    if (artist.length === 0) {
+      return movies;
+    }
+
+    return movies.filter((movie) => {
+      let movieArtists = movie.artists.map(
+        (artist) => artist.first_name + "" + artist.last_name
+      );
+      for (let i = 0; i < movieArtists.length; i++) {
+        if (artist.includes(movieArtists[i])) {
+          return true;
+        }
+      }
+      return false;
+    });
+  };
+
+  const handleFilter = () => {
+    console.log(genre, artist);
+    const filteredOnGenre = getFilteredOnGenre(moviesData);
+    const filteredOnArtist = getFilteredOnArtists(filteredOnGenre);
+    setFilteredMovies(filteredOnArtist);
+  };
   const [selectedDate, setSelectedDate] = React.useState(
     new Date("2014-08-18T21:11:54")
   );
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
+  // const handleDateChange = (date) => {
+  //   setSelectedDate(date);
+  // };
+
+  // const releaseDate=moment(moviesData.release_date);
+
+
+  
 
   return (
     <div>
@@ -104,7 +148,7 @@ export default function Home() {
       {/* Upcoming Movies */}
       <div className={classes.root}>
         <ImageList className={classes.imageList} cols={5}>
-          {MoviesData.map((item) => (
+          {moviesData.map((item) => (
             <ImageListItem className={classes.ImageListItem} key={item.id}>
               <img src={item.poster_url} alt={item.title} />
               <ImageListItemBar title={item.title} />
@@ -117,13 +161,15 @@ export default function Home() {
         <div className="releasedMovies">
           <div className={classes.root}>
             <ImageList cols={4} >
-              {MoviesData.map((item) => (
+              {filteredMovies.map((item) => (
                 <ImageListItem className={classes.ImageListItemR} key={item.id}>
-                  <img id="imagelist" src={item.poster_url} alt={item.title} />
+                  <Link to={`/details/${item.id}`}>
+                  <img id="imagelist" className={classes.image} src={item.poster_url} alt={item.title} />
                   <ImageListItemBar
                     title={item.title}
-                    subtitle={<span>Released On: {item.release_date}</span>}
-                  />
+                    subtitle={<span>Released On: {moment(item.release_date).format("ddd ll")}</span>}
+                    />
+                  </Link>
                 </ImageListItem>
               ))}
             </ImageList>
@@ -131,96 +177,15 @@ export default function Home() {
         </div>
         {/* Filters */}
         <div className="filters">
-          <Card className={classes.card}>
-            <span id="filterHeading">FIND MOVIES BY:</span>
-            <form noValidate autoComplete="off">
-              <TextField id="standard-basic" label="Movie Name" />
-              {/* Genres */}
-              <FormControl>
-                <div>
-                  <InputLabel id="demo-mutiple-checkbox-label">Genres</InputLabel>
-                  <Select
-                    className={classes.select}
-                    labelId="demo-mutiple-checkbox-label"
-                    id="demo-mutiple-checkbox"
-                    multiple
-                    value={moviesName}
-                    onChange={handleChange}
-                    input={<Input />}
-                    renderValue={(selected) => selected.join(", ")}
-                    MenuProps={MenuProps}
-                  >
-                    {Gener.map((movieName) => (
-                      <MenuItem key={movieName.id} value={movieName.name}>
-                        <Checkbox checked={moviesName.indexOf(movieName) > -1} />
-                        <ListItemText primary={movieName.name} />
-                      </MenuItem>
-                    ))}
-                  </Select>
-
-                </div>
-
-              </FormControl>
-              {/* Artists */}
-              <FormControl>
-                <div>
-                  <InputLabel id="demo-mutiple-checkbox-label">Artists</InputLabel>
-                  <Select
-                    className={classes.select}
-                    labelId="demo-mutiple-checkbox-label"
-                    id="demo-mutiple-checkbox"
-                    multiple
-                    value={actorsName}
-                    onChange={handleChangeactor}
-                    input={<Input />}
-                    renderValue={(selected) => selected.join(", ")}
-                    MenuProps={MenuProps}
-                  >
-                    {Artists.map((actorName) => (
-                      <MenuItem key={actorName.id} value={actorName.first_name}>
-                        <Checkbox checked={actorsName.indexOf(actorName) > -1} />
-                        <ListItemText primary={actorName.first_name} />
-                      </MenuItem>
-                    ))}
-                  </Select>
-
-                </div>
-
-              </FormControl>
-              {/* Release Dates */}
-              <div>
-              {/* Release Date Start */}
-                <TextField
-                  id="date"
-                  label="Release Date Start"
-                  type="date"
-                  defaultValue="dd-mm-yyyy"
-                  className={classes.select}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  />
-              {/* Release Date End */}
-                <TextField
-                  id="date"
-                  label="Release Date End"
-                  type="date"
-                  defaultValue="dd-mm-yyyy"
-                  className={classes.select}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
-              </div>
-              {/* Apply Button */}
-              <Button id="applyBtn" className={classes.select} variant="contained" color="primary">APPLY</Button>
-            </form>
-          </Card>
+        <Form
+            genre={genre}
+            artist={artist}
+            handleArtistChange={handleArtistChange}
+            handleGenreChange={handleGenreChange}
+            handleFilter={handleFilter}
+          />
+          
         </div>
-
-
-
-
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
-let moviesData = [
+export let moviesData = [
     {
         id: "M1",
-        title: "The Yashfather",
-        storyline: "A chilling portrait of the Corleone family's rise and near fall from power in America along with balancing the story of the Sicilian clan's ugly crime business in which they are engaged.",
+        title: "The Godfather",
+        storyline: "  A chilling portrait of the Corleone family's rise and near fall from power in America along with balancing the story of the Sicilian clan's ugly crime business in which they are engaged.",
         genres: [
             "Crime",
             "Drama"
@@ -10,6 +10,7 @@ let moviesData = [
         duration: 177,
         poster_url: "https://upload.wikimedia.org/wikipedia/en/1/1c/Godfather_ver1.jpg",
         trailer_url: "https://www.youtube.com/watch/?v=sY1S34973zA",
+        trailer_id: "sY1S34973zA",
         wiki_url: "https://en.wikipedia.org/wiki/The_Godfather",
         release_date: "1972-03-15T00:00:00+05:30",
         censor_board_rating: "R",
@@ -39,7 +40,7 @@ let moviesData = [
     {
         id: "M2",
         title: "The Dark Anurag",
-        storyline: "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham. The Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+        storyline: "  When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham. The Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
         genres: [
             "Action",
             "Crime",
@@ -48,6 +49,7 @@ let moviesData = [
         duration: 152,
         poster_url: "https://upload.wikimedia.org/wikipedia/en/8/8a/Dark_Knight.jpg",
         trailer_url: "https://www.youtube.com/watch?v=_PZpmTj1Q8Q",
+        trailer_id: "_PZpmTj1Q8Q",
         wiki_url: "https://en.wikipedia.org/wiki/The_Dark_Knight_(film)",
         release_date: "2008-07-18T00:00:00+05:30",
         censor_board_rating: "PG-13",
@@ -77,7 +79,7 @@ let moviesData = [
     {
         id: "M3",
         title: "Inception",
-        storyline: "A thief, who steals corporate secrets through the use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
+        storyline: "  A thief, who steals corporate secrets through the use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
         genres: [
             "Action",
             "Adventure",
@@ -86,6 +88,7 @@ let moviesData = [
         duration: 148,
         poster_url: "https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg",
         trailer_url: "https://www.youtube.com/watch?v=8hP9D6kZseM",
+        trailer_id: "8hP9D6kZseM",
         wiki_url: "https://en.wikipedia.org/wiki/Inception",
         release_date: "2010-07-16T00:00:00+05:30",
         censor_board_rating: "PG-13",
@@ -115,7 +118,7 @@ let moviesData = [
     {
         id: "M4",
         title: "Interstellar",
-        storyline: "A team of explorers travel beyond this galaxy through a newly discovered wormhole to discover whether mankind has a future among the stars.",
+        storyline: "  A team of explorers travel beyond this galaxy through a newly discovered wormhole to discover whether mankind has a future among the stars.",
         genres: [
             "Adventure",
             "Drama",
@@ -124,6 +127,7 @@ let moviesData = [
         duration: 169,
         poster_url: "https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg",
         trailer_url: "https://www.youtube.com/watch?v=2LqzF5WauAw",
+        trailer_id: "2LqzF5WauAw",
         wiki_url: "https://en.wikipedia.org/wiki/Interstellar_(film)",
         release_date: "2014-11-07T00:00:00+05:30",
         censor_board_rating: "PG-13",
@@ -153,7 +157,7 @@ let moviesData = [
     {
         id: "M5",
         title: "Shahid",
-        storyline: "Shahid Azmi becomes an unlikely champion of human rights, particularly for India's Muslim minority.",
+        storyline: "  Shahid Azmi becomes an unlikely champion of human rights, particularly for India's Muslim minority.",
         genres: [
             "Biography",
             "Crime",
@@ -162,6 +166,7 @@ let moviesData = [
         duration: 129,
         poster_url: "https://upload.wikimedia.org/wikipedia/en/c/cd/Shahid_Poster_%282013%29.jpg",
         trailer_url: "https://www.youtube.com/watch?v=XiQXmIn7qbI",
+        trailer_id: "XiQXmIn7qbI",
         wiki_url: "https://en.wikipedia.org/wiki/Shahid_(film)",
         release_date: "2013-10-18T00:00:00+05:30",
         censor_board_rating: "NR",
@@ -191,7 +196,7 @@ let moviesData = [
     {
         id: "M6",
         title: "Annabelle: Creation",
-        storyline: "12 years after the tragic death of their little girl, a dollmaker and his wife welcome a nun and several girls from a shuttered orphanage into their home, where they soon become the target of the dollmaker's possessed creation, Annabelle.",
+        storyline: "  12 years after the tragic death of their little girl, a dollmaker and his wife welcome a nun and several girls from a shuttered orphanage into their home, where they soon become the target of the dollmaker's possessed creation, Annabelle.",
         genres: [
             "Horror",
             "Suspense"
@@ -199,6 +204,7 @@ let moviesData = [
         duration: 109,
         poster_url: "https://upload.wikimedia.org/wikipedia/en/0/08/Annabelle_Creation.jpg",
         trailer_url: "https://www.youtube.com/watch?v=KisPhy7T__Q",
+        trailer_id: "KisPhy7T__Q",
         wiki_url: "https://en.wikipedia.org/wiki/Annabelle:_Creation",
         release_date: "2017-08-11T00:00:00+05:30",
         censor_board_rating: "R",
@@ -219,7 +225,7 @@ let moviesData = [
     {
         id: "M7",
         title: "The Revenant",
-        storyline: "A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.",
+        storyline: "  A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.",
         genres: [
             "Action",
             "Adventure",
@@ -228,6 +234,7 @@ let moviesData = [
         duration: 156,
         poster_url: "https://upload.wikimedia.org/wikipedia/en/b/b6/The_Revenant_2015_film_poster.jpg",
         trailer_url: "https://www.youtube.com/watch?v=LoebZZ8K5N0",
+        trailer_id: "LoebZZ8K5N0",
         wiki_url: "https://en.wikipedia.org/wiki/The_Revenant_(2015_film)",
         release_date: "2015-12-16T00:00:00+05:30",
         censor_board_rating: "R",
@@ -256,4 +263,9 @@ let moviesData = [
     }
 ]
 
-export default moviesData;
+
+
+export function findMovieById(id){
+    return moviesData.find((movie) => movie.id === id);
+}
+
