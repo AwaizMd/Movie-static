@@ -61,16 +61,16 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250
-    }
-  }
-};
+// const ITEM_HEIGHT = 48;
+// const ITEM_PADDING_TOP = 8;
+// const MenuProps = {
+//   PaperProps: {
+//     style: {
+//       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+//       width: 250
+//     }
+//   }
+// };
 
 
 
@@ -128,22 +128,15 @@ export default function Home() {
     const filteredOnArtist = getFilteredOnArtists(filteredOnGenre);
     setFilteredMovies(filteredOnArtist);
   };
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date("2014-08-18T21:11:54")
-  );
-
-  // const handleDateChange = (date) => {
-  //   setSelectedDate(date);
-  // };
-
-  // const releaseDate=moment(moviesData.release_date);
-
-
+  // const [selectedDate, setSelectedDate] = React.useState(
+  //   new Date("2014-08-18T21:11:54")
+  // );
   
 
   return (
     <div>
       <Header />
+      
       <div className="upcoming-movies">Upcoming Movies</div>
       {/* Upcoming Movies */}
       <div className={classes.root}>

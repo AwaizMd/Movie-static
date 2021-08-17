@@ -1,10 +1,11 @@
 import { Button } from "@material-ui/core";
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { findMovieById } from "../../common/moviesData";
 import "./Details.css"
 import { useHistory } from "react-router-dom";
 import Artists from "./Artists";
 import MovieDetails from "./MovieDetails";
+import Header from "../../common/Header";
 
 
 
@@ -18,8 +19,22 @@ export default function Details() {
         history.push("/");
     }
 
+    function toBookShow(){
+        history.push("/bookShow");
+    }
+
     return (
         <>
+            <div>
+              <Header/>
+              <div style={{
+                    position: "absolute",
+                    left: "83.5%",
+                    top: "8.4px",
+                }}>
+                    <Link to="/bookshow" style={{ textDecoration: "none" }}><Button variant="contained" color="primary" onClick={toBookShow}>BOOK SHOW</Button></Link>
+                </div>
+            </div>
             <Button style={{ margin: "20px 0px 0px 22px" }} onClick={onBack}>{back}  Back to Home </Button>
             <div className="details-grid">
                 {/* movie-poster */}
