@@ -1,4 +1,4 @@
-import { colors, ImageList, ImageListItem, ImageListItemBar, makeStyles, Typography } from "@material-ui/core";
+import { ImageList, ImageListItem, ImageListItemBar, makeStyles, Typography } from "@material-ui/core";
 import { useParams } from "react-router-dom"
 import { findMovieById } from "../../common/moviesData";
 import "./Details.css"
@@ -39,7 +39,7 @@ function Artists() {
                     {
                         movies.artists.map((item) => (
                             <ImageListItem key={item.profile_url}>
-                                <img src={item.profile_url}></img>
+                                <img src={item.profile_url} alt="profile pic"/>
                                 <ImageListItemBar
                                     title={item.first_name + " " + item.last_name}
                                 />
