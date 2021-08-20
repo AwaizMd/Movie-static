@@ -1,30 +1,58 @@
-.header{
-    background-color: #222;
-    height: 36px;
-    padding: 8px 32px 8px 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header {
+  background-color: #222;
+  height: 36px;
+  padding: 8px 32px 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.svg-color{
-    background-color: #ff7f7f;
+.svg-color {
+  background-color: #ff7f7f;
 
-    animation-duration: 8s;
-    animation-name: svg-rotation;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    transform-origin: 50% 50%;
-    display: inline-block;
+  animation-duration: 8s;
+  animation-name: svg-rotation;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+  display: inline-block;
 }
 
 @keyframes svg-rotation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-    
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
+.app-header {
+  background-color: #222;
+  height: 36px;
+  padding: 8px 32px 8px 16px;
+}
+
+.login-button {
+  float: right;
+}
+
+.bookshow-button {
+  float: right;
+  margin-right: 8px;
+}
+.tabs {
+  margin-bottom: 20px;
+}
+
+.dispNone {
+  display: none;
+}
+
+.dispBlock {
+  display: block;
+}
+
+.red {
+  color: red;
+}

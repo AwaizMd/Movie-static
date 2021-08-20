@@ -62,7 +62,7 @@ const BookShow = (props) => {
         );
         setLocations(newLocations);
       });
-  }, []);
+  }, );
 
   const locationChangeHandler = (event) => {
     setLocation(event.target.value);
