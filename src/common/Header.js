@@ -36,7 +36,7 @@ TabContainer.propTypes = {
 };
 
 const Header = (props) => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [isModalOpen, setModalIsOpen] = useState(false);
   const [value, setValue] = useState(0);
   const [usernameRequired, setUsernameRequired] = useState("dispNone");
   const [username, setUsername] = useState("");
@@ -275,7 +275,7 @@ const Header = (props) => {
       </div> */}
       <Modal
         ariaHideApp={false}
-        isOpen={modalIsOpen}
+        isOpen={isModalOpen}
         contentLabel="Login"
         onRequestClose={closeModalHandler}
         style={customStyles}
